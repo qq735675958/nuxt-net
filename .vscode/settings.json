@@ -1,0 +1,25 @@
+{
+    "editor.fontSize": 16,
+    // vetur configuration
+    "vetur.format.defaultFormatter.html": "js-beautify-html",
+    // prettier configuration
+    "prettier.disableLanguages": [
+        "vue"
+    ]
+    //.vue文件template格式化支持，并使用js-beautify-html插件
+    
+    //根据文件后缀名定义vue文件类型
+    //配置 ESLint 检查的文件类型
+    "eslint.validate": [
+      "javascript",
+      "javascriptreact",
+      {
+        "language": "vue",
+        "autoFix": true
+      }
+    ],
+    //保存时eslint自动修复错误
+    "eslint.autoFixOnSave": true,
+    //保存自动格式化
+    "editor.formatOnSave": true
+}

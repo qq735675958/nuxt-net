@@ -23,13 +23,18 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    'iview/dist/styles/iview.css'
+    'iview/dist/styles/iview.css',
+    '~static/css/reset.css',
+    '~static/css/font-awesome.min.css',
+    { src: "swiper/dist/css/swiper.css" }
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/iview'
+    '@/plugins/iview',
+    { src: "~/plugins/vue-swiper.js", ssr: false },
+    { src: "~/plugins/mock.js", ssr: true },
   ],
   /*
   ** Nuxt.js dev-modules
@@ -57,7 +62,8 @@ module.exports = {
     /*
     ** You can extend webpack config here
     */
-    extend (config, ctx) {
-    }
+    extend(config, ctx) {
+    },
+    vendor: ['axios'] // 为防止重复打包
   }
 }
