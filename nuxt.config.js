@@ -5,10 +5,11 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: process.env.npm_package_name || '',
+    title: process.env.npm_package_name || 'nuxt',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: "viewport", content: "width=device-width initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" },
+      { name: "viewport", content: "width=device-width, initial-scale=1, shrink-to-fit=no" },
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
@@ -23,16 +24,20 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    'iview/dist/styles/iview.css',
-    '~static/css/reset.css',
+    'bootstrap/dist/css/bootstrap.css',
+    'bootstrap-vue/dist/bootstrap-vue.css',
+    // 'iview/dist/styles/iview.css',
+    '~static/css/reset.less',
     '~static/css/font-awesome.min.css',
+    '~static/css/style.css',
     { src: "swiper/dist/css/swiper.css" }
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/iview',
+    // '@/plugins/iview',
+    '@/plugins/bootstrap',
     { src: "~/plugins/vue-swiper.js", ssr: false },
     { src: "~/plugins/mock.js", ssr: true },
   ],
@@ -64,6 +69,9 @@ module.exports = {
     */
     extend(config, ctx) {
     },
+    preset: {
+      autoprefixer: true
+    },
     vendor: ['axios'] // 为防止重复打包
-  }
+  },
 }
